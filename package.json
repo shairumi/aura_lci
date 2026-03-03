@@ -1,0 +1,47 @@
+{
+  "name": "aura-lci",
+  "version": "0.1.0",
+  "description": "Local Context Intelligence (LCI) — a privacy-first, on-device user context engine",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "lint": "tsc --noEmit",
+    "ethnographer": "node dist/agents/ethnographer.js",
+    "librarian": "node dist/agents/librarian.js",
+    "secretary": "node dist/agents/secretary.js",
+    "chronicler": "node dist/agents/chronicler.js",
+    "mine-history": "node dist/agents/chronicler.js --mine-history",
+    "strategist": "node dist/agents/strategist.js",
+    "mine-strategy": "node dist/agents/strategist.js --mine-history",
+    "financial-advisor": "node dist/agents/financial-advisor.js",
+    "monitor": "node dist/agents/monitor.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "lci",
+    "local-first",
+    "privacy",
+    "context-intelligence",
+    "multi-agent"
+  ],
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "chokidar": "^5.0.0",
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "pdf-parse": "^2.4.5",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "@types/pdf-parse": "^1.1.5",
+    "@types/uuid": "^10.0.0",
+    "typescript": "^5.9.3"
+  }
+}

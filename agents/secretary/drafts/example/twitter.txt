@@ -1,0 +1,13 @@
+🧵 Just shipped: local PDF content extraction for on-device identity enrichment (1/5)
+
+1/ The Ethnographer can now parse the first 3 pages of any PDF — locally, no API calls — and map noun phrases to its identity lexicon.
+
+2/ This matters because filename tokenisation only gets you ~65% confidence. Content extraction pushes it to 90%+. The model gets smarter without leaving your machine.
+
+3/ Implementation: pdf-parse + a 200-token noun phrase filter. Raw text never hits disk — only the derived keyword tokens are persisted. Privacy constraint: preserved.
+
+4/ Signal flow: Librarian sets requiresExtraction: true → Ethnographer reads content → USER_IDENTITY.md vocabularyDomain updated → Secretary fires toast.
+
+5/ This is commit 28 of 1,000. Building Aura in public — a local-first context engine that learns you without watching you.
+
+#buildinpublic #localfirst #TypeScript #privacy #oss

@@ -1,0 +1,35 @@
+# Runtime data — never commit
+data/
+dist/
+
+# Agent scratch space — local only (per-agent working dirs)
+agents/ethnographer/
+agents/librarian/
+agents/chronicler/
+# agents/secretary/drafts/ and agents/secretary/strategy-vault/<hash>/ are tracked
+# Finance vault is local-only — filenames derive from real personal documents
+agents/secretary/strategy-vault/finance/
+
+# Claude Code local settings (machine-specific paths)
+.claude/settings.local.json
+
+# Environment / secrets
+.env
+.env.local
+.env*.local
+
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/settings.json
+*.swp
+*.swo
+
+# TypeScript build artifacts
+*.tsbuildinfo

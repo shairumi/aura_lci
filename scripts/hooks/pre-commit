@@ -1,0 +1,25 @@
+#!/bin/sh
+# Aura pre-commit hook — ensure Chronicler + Strategist are alive before committing.
+#
+# The Librarian's git-watcher writes a new git-commit-signal.json after this commit
+# lands. Chronicler and Strategist must be running so they pick it up immediately.
+#
+# Installed by: scripts/register-scheduler.ps1
+# Source:       scripts/hooks/pre-commit  (tracked)
+# Destination:  .git/hooks/pre-commit     (active)
+
+PROJECT_ROOT="$(git rev-parse --show-toplevel)"
+HEALTH_SCRIPT="$PROJECT_ROOT/scripts/health-check.ps1"
+
+# Only fire if powershell.exe is available (Windows)
+if ! command -v powershell.exe >/dev/null 2>&1; then
+  echo "[aura] powershell.exe not found — skipping health-check."
+  exit 0
+fi
+
+echo "[aura] Health-check (full scope) — ensuring Chronicler + Strategist are up..."
+powershell.exe -NonInteractive -ExecutionPolicy Bypass \
+  -File "$HEALTH_SCRIPT" -Scope full
+
+# Always allow the commit to proceed — health-check is best-effort.
+exit 0

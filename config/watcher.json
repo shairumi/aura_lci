@@ -1,0 +1,11 @@
+{
+  "watchPaths": [
+    "~/Downloads",
+    "~/Desktop"
+  ],
+  "recursive": false,
+  "followSymlinks": false,
+  "debounceMs": 500,
+  "excludeExtensions": [".tmp", ".crdownload", ".part", ".download"],
+  "excludePatterns": [".DS_Store", "Thumbs.db", "desktop.ini"]
+}

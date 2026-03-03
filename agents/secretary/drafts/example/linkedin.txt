@@ -1,0 +1,19 @@
+Shipped Mission 8 today: deep context extraction for Aura's on-device identity engine.
+
+The problem with filename-only signals: they plateau around 65% confidence. A file named "Q3_budget_review.pdf" is clearly financial — but "notes.pdf" tells you almost nothing.
+
+The fix: read the first 3 pages locally, extract noun phrases, map them to a lexicon. No API calls. No cloud. Just the file, the parser, and a 200-token filter.
+
+What changed:
+→ pdf-parse added to the stack (local only)
+→ Librarian now flags PDFs with requiresExtraction: true
+→ Ethnographer gains extractPdfContext() — raw text never persisted, only keyword tokens
+→ USER_IDENTITY.md gets two new fields: vocabularyDomain and recentFocusAreas
+
+Identity accuracy target: ≥ 80% confidence on ambiguous filenames by commit 50.
+
+This is commit 28 of a 1,000-commit milestone. Building a context engine that respects the constraint: zero data egress, ever.
+
+Repo: https://github.com/shairumi/aura_lci
+
+#LocalFirst #PrivacyByDesign #BuildInPublic #TypeScript #OpenSource

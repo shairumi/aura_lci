@@ -1,0 +1,34 @@
+{
+  "app": {
+    "name": "Aura",
+    "version": "0.1.0",
+    "logLevel": "info"
+  },
+  "identity": {
+    "stalenessThresholdMinutes": 60,
+    "confidenceThresholdLow": 40,
+    "confidenceThresholdHigh": 80
+  },
+  "librarian": {
+    "snapshotIntervalMinutes": 15,
+    "debounceMs": 500,
+    "maxEventsPerMinute": 100
+  },
+  "secretary": {
+    "pollIntervalSeconds": 30,
+    "minPollIntervalSeconds": 10,
+    "maxRetries": 3
+  },
+  "squad": {
+    "commitVelocityThresholdPerHour": 10,
+    "targetTotalCommits": 1000,
+    "stateFilePath": "data/squad-state.json"
+  },
+  "chronicler": {
+    "enabled": true,
+    "draftsDir": "agents/secretary/drafts",
+    "maxDiffLines": 500,
+    "maxDraftDiffLines": 100,
+    "includeFullDiff": true
+  }
+}
